@@ -4,6 +4,8 @@ Course: COSC-4301-001 Modern Programming
 Project: Capstone  
 Author: Nasim Bayati
 
+Acknowledgment: This README was prepared with editing assistance from OpenAI Codex.
+
 This project is a CLI-first full stack system for Neon Ark. The backend is a Spring Boot REST API with PostgreSQL persistence and Flyway migrations. The client is a vanilla Java command-line application that communicates with the backend only through HTTP.
 
 ## Project Structure
@@ -79,3 +81,25 @@ Run tests:
 - Flyway creates and seeds the database automatically when the backend starts.
 - `GET /api/creatures` hides removed creatures by default. `GET /api/creatures?includeRemoved=true` includes historical soft-deleted records for review.
 - Deleting a creature performs a soft delete by changing its status to `REMOVED`.
+
+## Tested Workflows
+
+The following workflows were manually verified against the running backend and CLI:
+
+- List creatures with default filtering
+- List creatures including removed records
+- View a creature by ID
+- View creature observations
+- Find creatures by feeding time
+- View system users with and without the required `X-Role: ADMIN` header
+- Register a new creature
+- Rename a creature with confirmation
+- Remove a creature with confirmation
+
+Backend route spot checks were also verified directly with PowerShell using:
+
+- `GET /api/creatures`
+- `GET /api/creatures?includeRemoved=true`
+- `GET /api/creatures/{id}`
+- `GET /api/feedings?time=08:00`
+- `GET /api/admin/users` with `X-Role: ADMIN`
