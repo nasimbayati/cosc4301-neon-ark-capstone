@@ -1,0 +1,5 @@
+rootProject.name = 'neon-ark-capstone'
+
+include 'backend'
+include 'cli'
+

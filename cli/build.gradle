@@ -1,0 +1,24 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+description = 'Neon Ark vanilla Java CLI client'
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+
+dependencies {
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.17.2'
+}
+
+application {
+    mainClass = 'edu.acc.neonark.cli.NeonArkCliApplication'
+}
+
+tasks.named('run', JavaExec) {
+    standardInput = System.in
+}

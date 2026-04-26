@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: neon-ark-capstone-backend
+  datasource:
+    url: jdbc:postgresql://localhost:5438/neon_ark_capstone
+    driver-class-name: org.postgresql.Driver
+    username: neonark
+    password: neonarkpass
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+  jpa:
+    generate-ddl: false
+    hibernate:
+      ddl-auto: none
+    open-in-view: false
+server:
+  port: 8080
